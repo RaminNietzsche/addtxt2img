@@ -53,7 +53,7 @@ function Drow_Text
 #			let Y2=$Y1+10
 #			X1=10
 #			X2=10
-			echo convert -pointsize ${Txt_Font_Size} -fill ${Txt_Color} ${Txt_Font} -draw \'text $X1,$Y1 $Txt\'  -pointsize ${Sub_Font_Size} -fill ${Sub_Color} ${Sub_Font} -draw \'text $X2,$Y2 $Sub\'  $f $f
+			convert -pointsize ${Txt_Font_Size} -fill ${Txt_Color} ${Txt_Font} -draw "text $X1,$Y1 \"$Txt\""  -pointsize ${Sub_Font_Size} -fill ${Sub_Color} ${Sub_Font} -draw "text $X2,$Y2 \"$Sub\""  $f $f
 		fi 
 	done 
 }
@@ -76,7 +76,7 @@ function Get_Arg
 					Show_Help
 					exit
 				fi
-				Txt="\""
+				Txt="" #"\""
 				Txt="${Txt}""${_args[$Arg_Count+1]}""${Txt}"
 				echo $Txt
 				let tmp=Arg_Count+1
@@ -196,7 +196,7 @@ function Get_Arg
 					Show_Help
 					exit
 				fi
-				Sub="\""
+				Sub=""
 				Sub="${Sub}""${_args[$tmp+1]}""${Sub}"
 				echo $Sub
 				let tmp=tmp+2
